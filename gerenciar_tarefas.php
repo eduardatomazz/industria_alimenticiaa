@@ -7,8 +7,8 @@
     <link rel ="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container mt-4">
-    <h3>Lista de Tarefas</h3>
+<div class="container3">
+    <h3>A fazer</h3>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -19,22 +19,7 @@
                 <th>Data</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
-            $sql = "SELECT t.*, u.nome AS usuario FROM tarefas t
-                    LEFT JOIN usuarios u ON t.usuario_id = u.id";
-            $result = $conn->query($sql);
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>{$row['descricao']}</td>
-                        <td>{$row['setor']}</td>
-                        <td>{$row['usuario']}</td>
-                        <td>{$row['prioridade']}</td>
-                        <td>{$row['data_criacao']}</td>
-                      </tr>";
-            }
-            ?>
-        </tbody>
+        
     </table>
 </div>
 </body>

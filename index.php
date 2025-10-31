@@ -8,55 +8,47 @@
 </head>
 <body>
 
+<div class="cabecalho">
+    <p>Gerenciamento de Tarefas</p>
+</div>
+
 <nav class="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Gerenciamento de Tarefas</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="cadastrar_usuarios.php">Cadastro de Usuários</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php">Cadastro de Tarefas</a></li>
-                <li class="nav-item"><a class="nav-link" href="gerenciar_tarefas.php">Gerenciar Tarefas</a></li>
-            </ul>
-        </div>
+    <div class="container">
+        <li class="nav-item"><a class="nav-link" href="cadastrar_usuarios.php">Cadastro de Usuários</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php">Cadastro de Tarefas</a></li>
+        <li class="nav-item"><a class="nav-link" href="gerenciar_tarefas.php">Gerenciar Tarefas</a></li>
     </div>
 </nav>
+<div class="GT">
+     <h3>Cadastro de Tarefas</h3>
+</div>
 
-
-<div class="container mt-4">
-    <h3>Cadastro de Tarefas</h3>
+<div class="container2">
     <form action="cadastrar_tarefa.php" method="POST">
-        <div class="mb-3">
+        <div class="item3">
             <label>Descrição:</label>
             <input type="text" name="descricao" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="item3">
             <label>Setor:</label>
             <input type="text" name="setor" class="form-control">
         </div>
-        <div class="mb-3">
+        <div class="item3">
             <label>Usuário:</label>
-            <select name="usuario_id" class="form-select" required>
-                <option value="">Selecione</option>
-                <?php
-                $sql = "SELECT * FROM usuarios";
-                $result = $conn->query($sql);
-                while($row = $result->fetch_assoc()){
-                    echo "<option value='{$row['id']}'>{$row['nome']}</option>";
-                }
-                ?>
-            </select>
         </div>
-        <div class="mb-3">
+        <div class="item3">
             <label>Prioridade:</label>
-            <select name="prioridade" class="form-select">
+            <select name="prioridade" class="prioridade">
                 <option>Baixa</option>
                 <option>Média</option>
                 <option>Alta</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btnc">Cadastrar</button>
     </form>
 </div>
+
+
 
 
 </body>

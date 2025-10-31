@@ -1,7 +1,18 @@
 body{
-    background-color: rgb(139, 174, 250);
+    background-color: rgb(250, 139, 213);
 }
-
+.cabecalho{
+    background-color: rgb(137, 164, 255);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 500px;
+    height: 9%;
+    margin-right: 10px;
+}
 .navbar{
     background-color: rgb(135, 135, 255);
     padding: 5px;
