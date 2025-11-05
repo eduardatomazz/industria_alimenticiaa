@@ -1,20 +1,30 @@
 body{
-    background-color: rgb(250, 139, 213);
+    background-color: rgb(255, 240, 200);
 }
 .cabecalho{
-    background-color: rgb(137, 164, 255);
+    background-color: rgb(255, 204, 137);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    width: 500px;
-    height: 9%;
-    margin-right: 10px;
+   
+    
+}
+.nav-link{
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 30px;
+}
+
+.container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 .navbar{
-    background-color: rgb(135, 135, 255);
+    background-color: rgb(223, 168, 95);
     padding: 5px;
     display: flex;
     align-items: center;
@@ -22,3 +32,67 @@ body{
     margin: 0%;
 }
 
+.entrar{
+    display: flex;
+    color: rgb(255, 250, 240);
+    align-items: center;
+    text-align: center;
+}
+
+.laranja{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(85vh - 150px);
+}
+
+.inf_laranja{
+    background-color: #804502;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    padding: 20px; 
+}
+.label{
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+input{
+    resize: none;
+    width: 230px;
+    height: 30px;
+    background-color: rgba(240, 248, 255, 0);
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.botao3{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: #9f671d;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 40px;
+}

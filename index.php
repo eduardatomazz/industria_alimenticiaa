@@ -1,55 +1,75 @@
-<?php include('db.php'); ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gerenciamento de Tarefas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
     <link rel ="stylesheet" href="style.css">
+
 </head>
-<body>
+<header>
 
-<div class="cabecalho">
-    <p>Gerenciamento de Tarefas</p>
-</div>
+</header>
 
-<nav class="navbar">
-    <div class="container">
-        <li class="nav-item"><a class="nav-link" href="cadastrar_usuarios.php">Cadastro de Usuários</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php">Cadastro de Tarefas</a></li>
-        <li class="nav-item"><a class="nav-link" href="gerenciar_tarefas.php">Gerenciar Tarefas</a></li>
-    </div>
-</nav>
-<div class="GT">
-     <h3>Cadastro de Tarefas</h3>
-</div>
+<body >
+    <header>
+       
+    </header>
+    <main>
+        <section>
+            <section id="entrar">
+                <div class="laranja">
+                    <div class="inf_laranja">
+                        <?php
 
-<div class="container2">
-    <form action="cadastrar_tarefa.php" method="POST">
-        <div class="item3">
-            <label>Descrição:</label>
-            <input type="text" name="descricao" class="form-control" required>
-        </div>
-        <div class="item3">
-            <label>Setor:</label>
-            <input type="text" name="setor" class="form-control">
-        </div>
-        <div class="item3">
-            <label>Usuário:</label>
-        </div>
-        <div class="item3">
-            <label>Prioridade:</label>
-            <select name="prioridade" class="prioridade">
-                <option>Baixa</option>
-                <option>Média</option>
-                <option>Alta</option>
-            </select>
-        </div>
-        <button type="submit" class="btnc">Cadastrar</button>
-    </form>
-</div>
+                            include("db.php");
+                            $msg = "";
+                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                $email =  $_POST['email'] ?? "";
+                                $pass = $_POST['senha'] ?? "";
+
+                                $stmt = $mysqli->prepare("SELECT id_usuario, nome, email, senha FROM usuario WHERE email=? AND senha=?");
+                                $stmt->bind_param("ss", $email, $pass);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+                                $dados = $result->fetch_assoc();
+                                $stmt->close();
 
 
+                               if ($dados) {
+                                    $_SESSION["id_usuario"] = $dados["id_usuario"];
+                                    $_SESSION["usuario"] = $dados["usuario"];
+                                    header("Location: telainicial.php");
+                                    exit;
+                                } else {
+                                    echo "<div>
+                                    <p>Usuário ou senha incorretos!</p>
+                                    </div>";
+                                } 
 
+                            }
+                        ?>
 
+                        <div>
+                        <h3>CONECTE-SE AGORA</h3>
+                            <form id="formLogin" method="POST">
+                                <label for="usuario">Email:</label><br>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error" id="erroUsuario"></div>
+                                
+                                <label for="senha">Senha:</label><br>
+                                <input type="password" id="senha" name="senha" required>
+                                <div class="error" id="erroSenha"></div><br><br>
+                                
+                                <input class="botao3" type="submit" name="submit" value="Login" required>                             
+                            </form>
+                        </div>
+    
+                    </div>
+                    
+                </div>
+            </section>
+        </section>
+    </main>    
 </body>
 </html>
